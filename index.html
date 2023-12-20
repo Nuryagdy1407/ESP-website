@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="TGM">
+    <meta name="generator" content="TGM 0.80.0">
+    <title>HOWA MAGLUMATY</title>
+    <!-- Bootstrap core CSS -->
+<link href="bootstrap.min.css" rel="stylesheet">
+<script src="highcharts.js"></script>
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+  </head>
+  <body >
+    
+<header>
+  <div class="collapse bg-dark shadow" id="navbarHeader" >
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4" style="font-family: Tw Cen MT;">
+          <h4 class="text-white">Biz barada</h4>
+          <p class="text-white" style="color: white;">Proyektin tayarlanylysy barada ahli maglumatlary yazmaly...</p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4" style="font-family: Tw Cen MT;">
+          <h4 class="text-white">Biziň salgymyz : HI TGM</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-dark bg-dark shadow-sm" style="background-image: url(yokary.jpg); background-size:initial; padding-bottom: 40px;">
+    <div class="container">
+      <a href="#" class="navbar-brand d-flex align-items-center">
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> -->
+        <strong style="font-family: Century Gothic; font-size: 0.9rem;"> <img src="logo.png" width="40px" height="40px" alt=""> &nbsp; Howanyň gyzgynlygyny we çyglylygyny analiz etmek</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main >
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-1 g-3">
+        <div class="col">
+          <div class="card shadow-sm">
+            <div id="chart-temperature" class="container"></div>
+            <div class="card-body">
+              <p class="card-text" style="font-family: Tw Cen MT; color: royalblue">Otagdaky howanyň gyzgynlygyny wagt aralyklarynda görmek we analiz etmek</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-secondary" style="font-family: Tw Cen MT; color: white;"> <img src="temp.png" width="20px" height="20px" alt=""> Maglumat</button>
+                  <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                </div>
+                <small class="text-muted"><img src="time1.png" alt="" width="40px" height="40px"></small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-1 g-3">
+        <div class="col">
+          <div class="card shadow-sm">
+            <div id="chart-humidity" class="container"></div>
+            <div class="card-body">
+              <p class="card-text" style="font-family: Tw Cen MT; color: royalblue;">Otagdaky howanyň çyglylygyny wagt aralyklarynda görmek we analiz etmek</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-secondary" style="font-family: Tw Cen MT;"> <img src="humi.png" width="20px" height="20px" alt=""> Maglumat</button>
+                  <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                </div>
+                <small class="text-muted"><img src="time.png" alt="" width="40px" height="40px"></small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="text-muted py-5">
+  <div class="container">
+    <p class="float-end mb-1">
+      <!-- <a href="#">sahypa yza</a> -->
+    </p>
+    <p class="mb-1">Howa maglumaty &copy; Ähli hukuklar goralan - 2021</p>
+    <p class="mb-0">Gyzgynlyk we Çyglylyk <a href="/">ESP8266 module</a> ýada <a href="../getting-started/introduction/">WiFi module </a> arkaly gözleg edip bilersiňiz...</p>
+  </div>
+</footer>
+
+
+    <script src="bootstrap.bundle.min.js"></script>
+    <script>
+      var chartT = new Highcharts.Chart({
+        chart:{ renderTo : 'chart-temperature' },
+        title: { text: ' ' },
+        series: [{
+          showInLegend: false,
+          data: []
+        }],
+        plotOptions: {
+          line: { animation: false,
+            dataLabels: { enabled: true }
+          },
+          series: { color: 'red' }
+        },
+        xAxis: { type: 'datetime',
+          dateTimeLabelFormats: { second: '%H:%M:%S' }
+        },
+        yAxis: {
+          title: { text: 'Gyzgynlyk (Celsius)' }
+          //title: { text: 'Temperature (Fahrenheit)' }
+        },
+        credits: { enabled: false }
+      });
+      setInterval(function ( ) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var x = (new Date()).getTime(),
+                y = parseFloat(this.responseText);
+            //console.log(this.responseText);
+            if(chartT.series[0].data.length > 40) {
+              chartT.series[0].addPoint([x, y], true, true, true);
+            } else {
+              chartT.series[0].addPoint([x, y], true, false, true);
+            }
+          }
+        };
+        xhttp.open("GET", "/temperature", true);
+        xhttp.send();
+      }, 10000 ) ;
+      
+      var chartH = new Highcharts.Chart({
+        chart:{ renderTo:'chart-humidity' },
+        title: { text: ' ' },
+        series: [{
+          showInLegend: false,
+          data: []
+        }],
+        plotOptions: {
+          line: { animation: false,
+            dataLabels: { enabled: true }
+          }
+        },
+        xAxis: {
+          type: 'datetime',
+          dateTimeLabelFormats: { second: '%H:%M:%S' }
+        },
+        yAxis: {
+          title: { text: 'Çyglylyk (%)' }
+        },
+        credits: { enabled: false }
+      });
+      setInterval(function ( ) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var x = (new Date()).getTime(),
+                y = parseFloat(this.responseText);
+            //console.log(this.responseText);
+            if(chartH.series[0].data.length > 40) {
+              chartH.series[0].addPoint([x, y], true, true, true);
+            } else {
+              chartH.series[0].addPoint([x, y], true, false, true);
+            }
+          }
+        };
+        xhttp.open("GET", "/humidity", true);
+        xhttp.send();
+      }, 10000 ) ;
+      </script>
+      
+  </body>
+</html>
